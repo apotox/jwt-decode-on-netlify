@@ -1,0 +1,51 @@
+{
+  "name": "jwt-decode-mail",
+  "version": "0.1.0",
+  "private": false,
+  "author": "@saphidev",
+  "dependencies": {
+    "@material-ui/core": "^4.9.4",
+    "@material-ui/icons": "^4.9.1",
+    "@sendgrid/mail": "^6.5.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "concurrently": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "generate-json-webpack-plugin": "^0.3.1",
+    "lodash": "^4.17.15",
+    "netlify-lambda": "^1.6.3",
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-json-pretty": "^2.2.0",
+    "react-recaptcha-google": "^1.1.1",
+    "react-recaptcha-v3": "^1.1.0",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "concurrently 'yarn start:client' 'yarn start:server'",
+    "start:client": "react-scripts start",
+    "start:server": "netlify-lambda serve src/lambda -c webpack.server.js",
+    "build": "react-scripts build && yarn build:server && cd dist/server/ && yarn install",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:server": "netlify-lambda build src/lambda -c webpack.server.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
